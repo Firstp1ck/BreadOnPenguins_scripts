@@ -1,0 +1,15 @@
+name: Sync Fork
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:       # Manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tgymnich/fork-sync@v1.8
+        with:
+          owner: BreadOnPinguins      # Upstream repo owner
+          base: master       # Your fork's branch
+          head: master       # Upstream branch to sync from
